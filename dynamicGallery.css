@@ -1,0 +1,64 @@
+/*style for the elements that actually make up the carousel*/
+#displayBlock{
+    margin: 0 auto;
+    box-shadow: 7px 7px 15px 0px rgba(55,55,55,0.65);
+}
+
+#dynamicGallery{
+    width: 800px;
+    height: auto;
+    display: block;
+    margin: auto;
+    position: relative;
+}
+
+.prev, .next{
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 36px;
+    transition: .5s ease;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+}
+
+.next{
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+
+/*styling elements for stuff on the demo page that's NOT part of the carousel code*/
+html, body {
+    padding: 0;
+    margin: 0;
+    background: rgb(244, 244, 244);
+}
+
+h1{
+    border-bottom: 2px solid rgba(80, 80, 80, .3);
+    padding: 10px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    width: 30%;
+    font-family: helvetica;
+}
+
+ul{
+    list-style-type: none;
+    width: 700px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+li{
+    float: left;
+    style: none;
+    margin: 5px;
+}
