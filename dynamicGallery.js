@@ -1,4 +1,4 @@
-// object that contains the code for animating the image within the canvas element
+// object that contains the code for setting up the image gallery within the canvas element
 var dynamicGallery = {
     // array that contains the links for the image gallery. Simply add image links here to update the carousel
     imageLinks: ["http://i.imgur.com/9slii5yh.jpg", "http://i.imgur.com/6EGCU9gh.jpg", "http://i.imgur.com/84oTBl8h.jpg", "http://i.imgur.com/ZZO5JWZh.jpg"], 
@@ -12,18 +12,15 @@ var dynamicGallery = {
             toLoad.src = src;
             dynamicGallery.imageList.push(toLoad);
         } )
-    }, 
+    } 
 }
-
 
 // code for the carousel to change the image being displayed
 var carousel = {
-
     init: function(){
         this.addListeners();
         createImage(0);
     },
-
     addListeners: function(){
         var thumbnails = document.querySelector("#thumbnails")
         thumbnails.addEventListener("click", function(event){
@@ -33,7 +30,7 @@ var carousel = {
             createImage(clicked);
            
         })
-
+        //listeners for left and right arrow key
         window.addEventListener("keydown", function(event){
             if (event.keyCode === 39){
                 carousel.nextImg();
@@ -42,7 +39,7 @@ var carousel = {
                 carousel.prevImg();
             }
         })
-
+        //listeners for the left and right click buttons
         var next = document.querySelector(".next")
         var prev = document.querySelector(".prev")
         next.addEventListener("click", function(){
@@ -52,7 +49,6 @@ var carousel = {
             carousel.prevImg();
         })
     },
-
     nextImg: function(){
         if(dynamicGallery.imageDisplay < dynamicGallery.imageList.length - 1){
             dynamicGallery.imageDisplay++;
@@ -61,7 +57,6 @@ var carousel = {
         }
         createImage(dynamicGallery.imageDisplay);
     },
-
     prevImg: function(){
         if(dynamicGallery.imageDisplay > 0){
             dynamicGallery.imageDisplay--;
@@ -72,16 +67,15 @@ var carousel = {
     }
 }
 
-
 var canvas = document.querySelector("#displayBlock");
 var ctx = canvas.getContext('2d');
 var interval;
-var imgSize = canvas.width*1.1;
+var zoomSize = 1.1; // controls the "zoom" factor of the animation. Just put bigger number for a bigger effect.
+var imgSize = canvas.width*zoomSize; 
 var img = dynamicGallery.imageList[0];
 var imgAR = 16/9;
 
 function createImage(num){
-    
     img = dynamicGallery.imageList[num];
     imgAR = img.width/img.height
     canvas.height = canvas.width/imgAR;

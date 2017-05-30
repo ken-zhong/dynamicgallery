@@ -33,32 +33,48 @@
     background-color: rgba(0,0,0,0.8);
 }
 
-
+li{
+    cursor: pointer;
+}
 
 /*styling elements for stuff on the demo page that's NOT part of the carousel code*/
 html, body {
     padding: 0;
     margin: 0;
     background: rgb(244, 244, 244);
-}
-
-h1{
-    border-bottom: 2px solid rgba(80, 80, 80, .3);
-    padding: 10px;
-    margin-bottom: 50px;
-    margin-left: 20px;
-    width: 40%;
     font-family: helvetica;
 }
 
+h1{
+    padding: 10px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+}
+hr{
+    width: 450px;
+    border-top: 0;
+    border-bottom: 2px solid rgba(80, 80, 80, .3);
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 50px;
+}
 ul{
     list-style-type: none;
     width: 700px;
     margin: 0 auto;
     padding-top: 10px;
+    /*height: 130px;*/
 }
 li{
     float: left;
     style: none;
     margin: 5px;
+}
+
+#endNote{
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
 }
