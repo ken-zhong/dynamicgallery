@@ -1,9 +1,9 @@
 // object that contains the code for animating the image within the canvas element
 var dynamicGallery = {
-    imageLinks: ["http://i.imgur.com/9slii5yh.jpg", "http://i.imgur.com/6EGCU9gh.jpg", "http://i.imgur.com/84oTBl8h.jpg", "http://i.imgur.com/ZZO5JWZh.jpg"], // array that contains the links for the image gallery
+    // array that contains the links for the image gallery. Simply add image links here to update the carousel
+    imageLinks: ["http://i.imgur.com/9slii5yh.jpg", "http://i.imgur.com/6EGCU9gh.jpg", "http://i.imgur.com/84oTBl8h.jpg", "http://i.imgur.com/ZZO5JWZh.jpg"], 
     imageList: [],
     imageDisplay: 0, // start by loading the first image in the array
-    canvas:  document.querySelector("#displayBlock"),
 
     //preloads the images into the array imageList
     loadImages: function(){
@@ -13,30 +13,15 @@ var dynamicGallery = {
             dynamicGallery.imageList.push(toLoad);
         } )
     }, 
-
-    //draws and animates the image
-    createImage: function(num){
-        var ctx = this.canvas.getContext('2d');
-        var img = this.imageList[num];
-        var imgAR = img.width/img.height
-        this.canvas.height = this.canvas.width/imgAR;
-        var imgSize = dynamicGallery.canvas.width*1.1;
-
-        setInterval(function(){
-            if(imgSize > dynamicGallery.canvas.width){
-                ctx.drawImage(img, 0, 0, imgSize, imgSize/imgAR);
-                imgSize--;
-            }}, 
-        1000/60);
-    }
 }
+
 
 // code for the carousel to change the image being displayed
 var carousel = {
 
     init: function(){
         this.addListeners();
-        dynamicGallery.createImage(0);
+        createImage(0);
     },
 
     addListeners: function(){
@@ -45,7 +30,7 @@ var carousel = {
             var clicked = event.target.parentNode.value;
             console.log(event.target.parentNode)
             dynamicGallery.imageDisplay = clicked;
-            dynamicGallery.createImage(clicked);
+            createImage(clicked);
            
         })
 
@@ -74,7 +59,7 @@ var carousel = {
         } else {
             dynamicGallery.imageDisplay = 0;
         }
-        dynamicGallery.createImage(dynamicGallery.imageDisplay);
+        createImage(dynamicGallery.imageDisplay);
     },
 
     prevImg: function(){
@@ -83,7 +68,34 @@ var carousel = {
         } else {
             dynamicGallery.imageDisplay = dynamicGallery.imageList.length - 1;
         }
-        dynamicGallery.createImage(dynamicGallery.imageDisplay);
+        createImage(dynamicGallery.imageDisplay);
+    }
+}
+
+
+var canvas = document.querySelector("#displayBlock");
+var ctx = canvas.getContext('2d');
+var interval;
+var imgSize = canvas.width*1.1;
+var img = dynamicGallery.imageList[0];
+var imgAR = 16/9;
+
+function createImage(num){
+    
+    img = dynamicGallery.imageList[num];
+    imgAR = img.width/img.height
+    canvas.height = canvas.width/imgAR;
+    imgSize = canvas.width*1.1;
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    clearInterval(interval);
+    interval = setInterval(drawImage, 1000/60);
+}
+
+function drawImage(){
+    if(imgSize > canvas.width){
+        ctx.drawImage(img, 0, 0, imgSize, imgSize/imgAR);
+        imgSize--;
     }
 }
 
