@@ -1,7 +1,7 @@
 // object that contains the code for setting up the image gallery within the canvas element
 var dynamicGallery = {
     // array that contains the links for the image gallery. Simply add image links here to update the carousel
-    imageLinks: ["http://i.imgur.com/9slii5yh.jpg", "http://i.imgur.com/6EGCU9gh.jpg", "http://i.imgur.com/84oTBl8h.jpg", "http://i.imgur.com/ZZO5JWZh.jpg"], 
+    imageLinks: ["photos/1.jpg", "photos/2.jpg", "photos/3.jpg", "photos/4.jpg"], 
     imageList: [],
     imageDisplay: 0, // start by loading the first image in the array
 
