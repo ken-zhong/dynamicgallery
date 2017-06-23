@@ -69,6 +69,7 @@ li{
     float: left;
     style: none;
     margin: 5px;
+    padding-bottom: 20px;
 }
 
 #endNote{
@@ -77,4 +78,6 @@ li{
     margin-left: auto;
     margin-right: auto;
     width: 200px;
+    margin-top: 50px;
+    padding-bottom: 40px;
 }

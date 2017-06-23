@@ -1,17 +1,16 @@
-// object that contains the code for setting up the image gallery within the canvas element
+// This object contains the code for setting up the image gallery within the canvas element
 var dynamicGallery = {
-    // array that contains the links for the image gallery. Simply add image links here to update the carousel
-    imageLinks: ["photos/1.jpg", "photos/2.jpg", "photos/3.jpg", "photos/4.jpg"], 
+    // below array contains the links for the image gallery. add image links here to update the carousel
+    imageLinks: ["photos/1.jpg", "photos/2.jpg", "photos/3.jpg", "photos/4.jpg", "photos/5.jpg", "photos/6.jpg"], 
     imageList: [],
-    imageDisplay: 0, // start by loading the first image in the array
-
-    //preloads the images into the array imageList
+    imageDisplay: 0, // var to keep track of which image to display
+    //method below loads the images from imageLinks into the array imageList
     loadImages: function(){
         this.imageLinks.forEach(function(src){
             var toLoad = new Image();
             toLoad.src = src;
             dynamicGallery.imageList.push(toLoad);
-        } )
+        });
     } 
 }
 
@@ -22,13 +21,13 @@ var carousel = {
         createImage(0);
     },
     addListeners: function(){
+        //listeners for the thumbnail icons
         var thumbnails = document.querySelector("#thumbnails")
         thumbnails.addEventListener("click", function(event){
             var clicked = event.target.parentNode.value;
             console.log(event.target.parentNode)
             dynamicGallery.imageDisplay = clicked;
             createImage(clicked);
-           
         })
         //listeners for left and right arrow key
         window.addEventListener("keydown", function(event){
@@ -70,7 +69,7 @@ var carousel = {
 var canvas = document.querySelector("#displayBlock");
 var ctx = canvas.getContext('2d');
 var interval;
-var zoomSize = 1.1; // controls the "zoom" factor of the animation. Just put bigger number for a bigger effect.
+var zoomSize = 1.1; // controls the "zoom" factor of the animation.
 var imgSize = canvas.width*zoomSize; 
 var img = dynamicGallery.imageList[0];
 var imgAR = 16/9;
@@ -93,7 +92,9 @@ function drawImage(){
     }
 }
 
+//loads the image gallery and initializes the listeners
 dynamicGallery.loadImages();
 window.onload = function(){
     carousel.init();
 }
+
