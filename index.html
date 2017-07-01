@@ -14,7 +14,7 @@
 	<title></title>
 	<meta name="description" content="A dynamic image gallery and carousel written in JavaScript using a canvas element.">
 	<meta name="author" content"Ken Zhong">
-	<meta name="keywords" content="HTML, CSS, JavaScript, web development">
+	<meta name="keywords" content="HTML, CSS, JavaScript, web development, carousel">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>A Simple Dynamic Gallery</title>
 	<link rel="stylesheet" type="text/css" href="dynamicGallery.css">
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<h1>A Simple Dynamic Gallery</h1>
+<h2>A Simple Dynamic Gallery</h2>
 <hr>
 
 <div id="dynamicGallery">
@@ -35,17 +35,17 @@
 
 	<!-- TO DO FOR FUTURE VERSION: create a self-updating thumbnail carousel beneath the main display block  -->
 	<!-- hard-coded below right now-->
-	<ul id="thumbnails">
-		<li value="0"><img src="http://i.imgur.com/9slii5ys.jpg"></li>
-		<li value="1"><img src="http://i.imgur.com/6EGCU9gs.jpg"></li>
-		<li value="2"><img src="http://i.imgur.com/84oTBl8s.jpg"></li>
-		<li value="3"><img src="http://i.imgur.com/ZZO5JWZs.jpg"></li>
-		<li value="4"><img src="http://i.imgur.com/Ls5Iuv5s.jpg"></li>
-		<li value="5"><img src="http://i.imgur.com/QGJnyais.jpg"></li>
+	<ul id="dG-thumbnails">
+		<li value="0" class="dG-thumbs"><img class="img-thumbnails" src="photos/thumbnails/1.jpg"></li>
+		<li value="1" class="dG-thumbs"><img class="img-thumbnails" src="photos/thumbnails/2.jpg"></li>
+		<li value="2" class="dG-thumbs"><img class="img-thumbnails" src="photos/thumbnails/3.jpg"></li>
+		<li value="3" class="dG-thumbs"><img class="img-thumbnails" src="photos/thumbnails/4.jpg"></li>
+		<li value="4" class="dG-thumbs"><img class="img-thumbnails" src="photos/thumbnails/5.jpg"></li>
+		<li value="5" class="dG-thumbs"><img class="img-thumbnails" src="photos/thumbnails/6.jpg"></li>
 	</ul>
 </div>
 
-<div id="endNote"><a href="https://github.com/ken-zhong/dynamicgallery">Github</a></div>
+<div id="endNote"><p><a href="https://github.com/ken-zhong/dynamicgallery">Github</a>  //  <a href="https://ken-zhong.github.io">Ken Zhong</a></p></div>
 
 
 <script type="text/javascript" src="dynamicGallery.js"></script>
